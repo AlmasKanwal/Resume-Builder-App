@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Resume - ResumeForge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="dashboard.html" class="logo">
+                <span class="logo-icon">R</span>
+                <span class="logo-text">ResumeForge</span>
+            </a>
+            <div class="nav-actions">
+                <button id="save-btn" class="btn btn-primary">💾 Save</button>
+                <a href="dashboard.html" class="btn btn-secondary">← Back</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Editor Layout -->
+    <div class="editor-layout">
+        <!-- Left Panel: Form -->
+        <div class="editor-sidebar">
+            <form id="resume-form">
+                <!-- Resume Title -->
+                <div class="form-section">
+                    <h3>Resume Title</h3>
+                    <input type="text" id="resume-title" class="form-input" placeholder="e.g., My Professional Resume">
+                </div>
+                
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>👤 Personal Information</h3>
+                    <input type="text" id="full-name" class="form-input" placeholder="Full Name" required>
+                    <input type="email" id="email" class="form-input" placeholder="Email">
+                    <input type="tel" id="phone" class="form-input" placeholder="Phone">
+                    <input type="text" id="city" class="form-input" placeholder="City">
+                    <input type="url" id="linkedin" class="form-input" placeholder="LinkedIn URL">
+                </div>
+                
+                <!-- Summary -->
+                <div class="form-section">
+                    <h3>📝 Professional Summary</h3>
+                    <textarea id="summary" class="form-textarea" rows="4" placeholder="Write a brief professional summary..."></textarea>
+                </div>
+                
+                <!-- Education -->
+                <div class="form-section">
+                    <h3>🎓 Education</h3>
+                    <div id="education-list"></div>
+                    <button type="button" class="btn-add" onclick="addEducation()">+ Add Education</button>
+                </div>
+                
+                <!-- Experience -->
+                <div class="form-section">
+                    <h3>💼 Work Experience</h3>
+                    <div id="experience-list"></div>
+                    <button type="button" class="btn-add" onclick="addExperience()">+ Add Experience</button>
+                </div>
+                
+                <!-- Skills -->
+                <div class="form-section">
+                    <h3>⚡ Skills</h3>
+                    <input type="text" id="skills-input" class="form-input" placeholder="Enter skills separated by commas">
+                    <div id="skills-tags" class="skills-tags"></div>
+                </div>
+                
+                <!-- Languages -->
+                <div class="form-section">
+                    <h3>🌍 Languages</h3>
+                    <input type="text" id="languages-input" class="form-input" placeholder="Enter languages separated by commas">
+                    <div id="languages-tags" class="skills-tags"></div>
+                </div>
+                
+                <!-- Projects -->
+                <div class="form-section">
+                    <h3>🏆 Projects</h3>
+                    <div id="projects-list"></div>
+                    <button type="button" class="btn-add" onclick="addProject()">+ Add Project</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Right Panel: Preview -->
+        <div class="editor-preview">
+            <div class="preview-header">
+                <span>Live Preview</span>
+                <button id="download-btn" class="btn btn-secondary">⬇ Download PDF</button>
+            </div>
+            <div id="preview-container" class="preview-content">
+                <!-- Resume preview will be rendered here -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="message" class="message-toast"></div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
