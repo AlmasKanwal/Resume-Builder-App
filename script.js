@@ -161,7 +161,7 @@ function initDashboard() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async () => {
             await logout();
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         });
     }
     
