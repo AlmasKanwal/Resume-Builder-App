@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview Resume - ResumeForge</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
             <a href="dashboard.html" class="logo">
@@ -15,20 +15,17 @@
                 <span class="logo-text">ResumeForge</span>
             </a>
             <div class="nav-actions">
-                <button id="download-btn" class="btn btn-primary">⬇ Download PDF</button>
-                <a id="edit-btn" href="#" class="btn btn-secondary">✏️ Edit</a>
-                <a href="dashboard.html" class="btn btn-secondary">← Back</a>
+                <button id="download-btn" class="btn btn-primary"><i class="fa fa-download"></i> Download PDF</button>
+                <a id="edit-btn" href="#" class="btn btn-secondary"><i class="fa fa-edit"></i> Edit</a>
+                <a href="dashboard.html" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </nav>
-    
-    <!-- Preview Content -->
+
     <div class="preview-container">
-        <div id="resume-preview" class="resume-sheet">
-            <!-- Resume content will be rendered here -->
-        </div>
+        <div id="resume-preview" class="resume-preview-wrap"></div>
     </div>
-    
+
     <script type="module" src="script.js"></script>
 </body>
 </html>

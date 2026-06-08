@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Resume - ResumeForge</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
             <a href="dashboard.html" class="logo">
@@ -15,90 +15,133 @@
                 <span class="logo-text">ResumeForge</span>
             </a>
             <div class="nav-actions">
-                <button id="save-btn" class="btn btn-primary">💾 Save</button>
-                <a href="dashboard.html" class="btn btn-secondary">← Back</a>
+                <button id="save-btn" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                <a href="dashboard.html" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
     </nav>
-    
-    <!-- Editor Layout -->
+
     <div class="editor-layout">
-        <!-- Left Panel: Form -->
         <div class="editor-sidebar">
             <form id="resume-form">
                 <!-- Resume Title -->
                 <div class="form-section">
-                    <h3>Resume Title</h3>
+                    <h3><i class="fa fa-tag"></i> Resume Title</h3>
                     <input type="text" id="resume-title" class="form-input" placeholder="e.g., My Professional Resume">
                 </div>
-                
+
+                <!-- Template Selector -->
+                <div class="form-section">
+                    <h3><i class="fa fa-paint-brush"></i> Choose Template</h3>
+                    <div class="template-selector">
+                        <label class="template-option">
+                            <input type="radio" name="template" value="classic" checked>
+                            <div class="template-card">
+                                <div class="template-preview tp-classic">
+                                    <div class="tp-bar thick"></div>
+                                    <div class="tp-line long"></div>
+                                    <div class="tp-line medium"></div>
+                                    <div class="tp-bar thin"></div>
+                                    <div class="tp-line long"></div>
+                                </div>
+                                <span>Classic</span>
+                            </div>
+                        </label>
+                        <label class="template-option">
+                            <input type="radio" name="template" value="modern">
+                            <div class="template-card">
+                                <div class="template-preview tp-modern">
+                                    <div class="tp-header-band"></div>
+                                    <div class="tp-line long"></div>
+                                    <div class="tp-accent-bar"></div>
+                                    <div class="tp-line medium"></div>
+                                    <div class="tp-line long"></div>
+                                </div>
+                                <span>Modern</span>
+                            </div>
+                        </label>
+                        <label class="template-option">
+                            <input type="radio" name="template" value="sidebar">
+                            <div class="template-card">
+                                <div class="template-preview tp-sidebar">
+                                    <div class="tp-sidebar-col"></div>
+                                    <div class="tp-main-col">
+                                        <div class="tp-line long"></div>
+                                        <div class="tp-line medium"></div>
+                                        <div class="tp-line long"></div>
+                                    </div>
+                                </div>
+                                <span>Sidebar</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
                 <!-- Personal Information -->
                 <div class="form-section">
-                    <h3>👤 Personal Information</h3>
+                    <h3><i class="fa fa-user"></i> Personal Information</h3>
                     <input type="text" id="full-name" class="form-input" placeholder="Full Name" required>
                     <input type="email" id="email" class="form-input" placeholder="Email">
                     <input type="tel" id="phone" class="form-input" placeholder="Phone">
                     <input type="text" id="city" class="form-input" placeholder="City">
-                    <input type="url" id="linkedin" class="form-input" placeholder="LinkedIn URL">
+                    <input type="text" id="linkedin" class="form-input" placeholder="LinkedIn URL or username">
                 </div>
-                
+
                 <!-- Summary -->
                 <div class="form-section">
-                    <h3>📝 Professional Summary</h3>
+                    <h3><i class="fa fa-align-left"></i> Professional Summary</h3>
                     <textarea id="summary" class="form-textarea" rows="4" placeholder="Write a brief professional summary..."></textarea>
                 </div>
-                
+
                 <!-- Education -->
                 <div class="form-section">
-                    <h3>🎓 Education</h3>
+                    <h3><i class="fa fa-graduation-cap"></i> Education</h3>
                     <div id="education-list"></div>
-                    <button type="button" class="btn-add" onclick="addEducation()">+ Add Education</button>
+                    <button type="button" class="btn-add" onclick="addEducation()"><i class="fa fa-plus"></i> Add Education</button>
                 </div>
-                
+
                 <!-- Experience -->
                 <div class="form-section">
-                    <h3>💼 Work Experience</h3>
+                    <h3><i class="fa fa-briefcase"></i> Work Experience</h3>
                     <div id="experience-list"></div>
-                    <button type="button" class="btn-add" onclick="addExperience()">+ Add Experience</button>
+                    <button type="button" class="btn-add" onclick="addExperience()"><i class="fa fa-plus"></i> Add Experience</button>
                 </div>
-                
+
                 <!-- Skills -->
                 <div class="form-section">
-                    <h3>⚡ Skills</h3>
+                    <h3><i class="fa fa-cogs"></i> Skills</h3>
                     <input type="text" id="skills-input" class="form-input" placeholder="Enter skills separated by commas">
                     <div id="skills-tags" class="skills-tags"></div>
                 </div>
-                
+
                 <!-- Languages -->
                 <div class="form-section">
-                    <h3>🌍 Languages</h3>
+                    <h3><i class="fa fa-language"></i> Languages</h3>
                     <input type="text" id="languages-input" class="form-input" placeholder="Enter languages separated by commas">
                     <div id="languages-tags" class="skills-tags"></div>
                 </div>
-                
+
                 <!-- Projects -->
                 <div class="form-section">
-                    <h3>🏆 Projects</h3>
+                    <h3><i class="fa fa-folder-open"></i> Projects</h3>
                     <div id="projects-list"></div>
-                    <button type="button" class="btn-add" onclick="addProject()">+ Add Project</button>
+                    <button type="button" class="btn-add" onclick="addProject()"><i class="fa fa-plus"></i> Add Project</button>
                 </div>
             </form>
         </div>
-        
+
         <!-- Right Panel: Preview -->
         <div class="editor-preview">
             <div class="preview-header">
-                <span>Live Preview</span>
-                <button id="download-btn" class="btn btn-secondary">⬇ Download PDF</button>
+                <span><i class="fa fa-eye"></i> Live Preview</span>
+                <button id="download-btn" class="btn btn-secondary"><i class="fa fa-download"></i> Download PDF</button>
             </div>
-            <div id="preview-container" class="preview-content">
-                <!-- Resume preview will be rendered here -->
-            </div>
+            <div id="preview-container" class="preview-content"></div>
         </div>
     </div>
-    
+
     <div id="message" class="message-toast"></div>
-    
+
     <script type="module" src="script.js"></script>
 </body>
 </html>

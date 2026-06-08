@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - ResumeForge</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
@@ -15,40 +15,48 @@
                 <span class="logo-text">ResumeForge</span>
             </div>
             <div class="nav-actions">
-                <span id="user-name" class="user-name"></span>
-                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                <div class="user-profile">
+                    <div id="user-avatar" class="user-avatar">U</div>
+                    <div class="user-info">
+                        <span id="user-name" class="user-name"></span>
+                        <span id="user-email" class="user-email"></span>
+                    </div>
+                </div>
+                <button id="logout-btn" class="btn btn-secondary"><i class="fa fa-sign-out"></i> Logout</button>
             </div>
         </div>
     </nav>
-    
-    <!-- Dashboard Content -->
+
     <div class="dashboard-container">
         <div class="dashboard-header">
             <div>
-                <h1>All Resumes</h1>
-                <p class="subtitle">Browse and manage resumes from all users</p>
+                <h1><i class="fa fa-files-o"></i> All Resumes</h1>
+                <p class="subtitle">Browse all resumes &mdash; edit and delete your own</p>
             </div>
-            <a href="create-resume.html" class="btn btn-primary">+ Create New Resume</a>
+            <a href="create-resume.html" class="btn btn-primary"><i class="fa fa-plus"></i> Create New Resume</a>
         </div>
-        
+
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search resumes...">
+            <div class="search-wrap">
+                <i class="fa fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search by title or name...">
+            </div>
         </div>
-        
-        <div id="resumes-grid" class="resumes-grid">
-            <!-- Resume cards will be dynamically added here -->
-        </div>
-        
+
+        <div id="resumes-grid" class="resumes-grid"></div>
+
         <div id="empty-state" class="empty-state" style="display: none;">
-            <div class="empty-icon">📄</div>
+            <div class="empty-icon"><i class="fa fa-file-text-o"></i></div>
             <h3>No Resumes Yet</h3>
             <p>Create your first resume to get started</p>
-            <a href="create-resume.html" class="btn btn-primary">Create Resume</a>
+            <a href="create-resume.html" class="btn btn-primary"><i class="fa fa-plus"></i> Create Resume</a>
         </div>
-        
-        <div id="loading" class="loading">Loading resumes...</div>
+
+        <div id="loading" class="loading"><i class="fa fa-spinner fa-spin"></i> Loading resumes...</div>
     </div>
-    
+
+    <div class="message-toast" id="message"></div>
+
     <script type="module" src="script.js"></script>
 </body>
 </html>
